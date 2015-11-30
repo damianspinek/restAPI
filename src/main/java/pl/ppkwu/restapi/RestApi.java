@@ -34,7 +34,7 @@ public class RestApi {
 		}
 	}
 	
-	
+	@RequestMapping(value = "/zip", params = {"url"})
 	public HttpEntity<byte[]> zipFile(@RequestParam("url") String url) {
 		try {
 			ZIP.compressFile(url, "plik.zip");
