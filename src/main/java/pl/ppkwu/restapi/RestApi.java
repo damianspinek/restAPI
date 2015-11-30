@@ -21,6 +21,7 @@ public class RestApi {
 	public HttpEntity<byte[]> downloadFile(@RequestParam("url") String url) {
 		try {
 			FileDownloader.downloadFile(url, "plik");
+			byte[] readAllBytes = Files.readAllBytes(Paths.get("plik.txt"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
