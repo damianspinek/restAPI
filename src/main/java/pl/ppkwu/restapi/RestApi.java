@@ -1,5 +1,6 @@
 package pl.ppkwu.restapi;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,7 +47,13 @@ public class RestApi {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return null;
 	}
+	
+    public String unzip() {
+        return "<form action=\"/unzip\" enctype=\"multipart/form-data\" method=\"post\">\n" +
+                "  <input type=\"file\" name=\"file\">\n" +
+                "  <input type=\"submit\">\n" +
+                "</form>";
+    }
 	 
 }
