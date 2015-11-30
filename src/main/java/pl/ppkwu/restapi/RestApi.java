@@ -36,6 +36,7 @@ public class RestApi {
 	public HttpEntity<byte[]> zipFile(@RequestParam("url") String url) {
 		try {
 			ZIP.compressFile(url, "plik.zip");
+			byte[] readAllBytes = Files.readAllBytes(Paths.get("plik.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
