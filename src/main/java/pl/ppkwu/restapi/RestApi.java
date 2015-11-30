@@ -19,7 +19,12 @@ public class RestApi {
 
 	@RequestMapping(value = "/download", params = {"url"})
 	public HttpEntity<byte[]> downloadFile(@RequestParam("url") String url) {
-		FileDownloader.downloadFile(url, "plik");
+		try {
+			FileDownloader.downloadFile(url, "plik");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 	 
