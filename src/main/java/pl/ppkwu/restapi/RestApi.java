@@ -1,9 +1,10 @@
 package pl.ppkwu.restapi;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import library1.FileDownloader;
 import library1.ZIP;
@@ -55,6 +57,11 @@ public class RestApi {
                 "  <input type=\"file\" name=\"file\">\n" +
                 "  <input type=\"submit\">\n" +
                 "</form>";
+    }
+	
+	@RequestMapping(value = "uznip", method = RequestMethod.POST, produces = "application/zip")
+    public byte[] uznip_post(@RequestParam(value = "plik", required = false) MultipartFile file, HttpServletResponse response) throws IOException {
+		return null;
     }
 	 
 }
