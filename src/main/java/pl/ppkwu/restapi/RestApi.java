@@ -30,5 +30,11 @@ public class RestApi {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	
+	public HttpEntity<byte[]> zipFile(@RequestParam("url") String url) {
+		return null;
+
+	}
 	 
 }
