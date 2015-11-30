@@ -60,7 +60,8 @@ public class RestApi {
     }
 	
 	@RequestMapping(value = "uznip", method = RequestMethod.POST, produces = "application/zip")
-    public byte[] uznip_post(@RequestParam(value = "plik", required = false) MultipartFile file, HttpServletResponse response) throws IOException {
+    public byte[] uznip_post(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletResponse response) throws IOException {
+		ZIP.decompressFile(file.getOriginalFilename(), "file");
 		return null;
     }
 	 
