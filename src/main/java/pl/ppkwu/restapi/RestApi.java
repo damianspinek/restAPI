@@ -1,6 +1,5 @@
 package pl.ppkwu.restapi;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,11 +21,14 @@ public class RestApi {
 		try {
 			FileDownloader.downloadFile(url, "plik");
 			byte[] readAllBytes = Files.readAllBytes(Paths.get("plik.txt"));
+			return ResponseEntity
+			          .ok()
+			          .header("Content-Disposition", "attachement; filename=file.txt")
+			          .body(readAllBytes);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return null;
 	}
 	 
 }
