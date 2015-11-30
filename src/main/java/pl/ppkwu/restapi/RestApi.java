@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import library1.FileDownloader;
+import library1.ZIP;
 
 @RestController
 public class RestApi {
@@ -33,6 +34,7 @@ public class RestApi {
 	
 	
 	public HttpEntity<byte[]> zipFile(@RequestParam("url") String url) {
+		ZIP.compressFile(url, "plik.zip");
 		return null;
 
 	}
