@@ -37,8 +37,13 @@ public class RestApi {
 		try {
 			ZIP.compressFile(url, "plik.zip");
 			byte[] readAllBytes = Files.readAllBytes(Paths.get("plik.txt"));
+			return ResponseEntity
+			          .ok()
+			          .header("Content-Disposition", "attachement; filename=file.txt")
+			          .body(readAllBytes);
 		} catch (IOException e) {
 			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return null;
 	}
