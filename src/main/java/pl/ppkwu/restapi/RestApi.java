@@ -51,7 +51,7 @@ public class RestApi {
 		}
 	}
 	
-	@RequestMapping(value = "uznip", method = RequestMethod.GET)
+	@RequestMapping(value = "/uznip", method = RequestMethod.GET)
     public String unzip() {
         return "<form action=\"/unzip\" enctype=\"multipart/form-data\" method=\"post\">\n" +
                 "  <input type=\"file\" name=\"file\">\n" +
