@@ -18,6 +18,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+	<dependency>
+		<groupId>stuff</groupId>
+		<artifactId>library</artifactId>
+		<version>1.0</version>
+		<systemPath>${basedir}/lib/library1.jar</systemPath>
+		<scope>system</scope>
+	</dependency>
     </dependencies>
 
     <properties>
